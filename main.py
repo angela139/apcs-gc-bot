@@ -31,7 +31,6 @@ def main():
     driver.get(assignment_link)
     sleep(2)
     num_students = len(driver.find_elements(By.CLASS_NAME, 'WkZsyc'))
-    print(num_students)
     for student in range(num_students):
         name = driver.find_elements(By.CLASS_NAME, 'J33wTc')[student].text
         print(name)
