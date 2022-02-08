@@ -32,12 +32,13 @@ def main():
     sleep(2)
     num_students = len(driver.find_elements(By.CLASS_NAME, 'WkZsyc'))
     for student in range(num_students):
-        name = driver.find_elements(By.CLASS_NAME, 'J33wTc')[student].text
-        print(name)
-        link = driver.find_elements(By.CLASS_NAME, 'vwNuXe')[student].get_attribute("href")
-        print(link)
-        student_dict = {"name": name.split()[0], "link": link}
-        student_array.append(student_dict)
+        try:
+            name = driver.find_elements(By.CLASS_NAME, 'J33wTc')[student].text
+            link = driver.find_elements(By.CLASS_NAME, 'vwNuXe')[student].get_attribute("href")
+            student_dict = {"name": name.split()[0], "link": link}
+            student_array.append(student_dict)
+        except:
+            print("Student couldn't be added")
 
     print(student_array)
     sleep(3)
